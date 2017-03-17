@@ -13,7 +13,7 @@ Een gedistribueerd versiebeheersysteem.
 
 Versiebeheer laat je toe om verschillende versies van een applicatie bij te houden zodat je makkelijk naar een vorige versie kan teruggrijpen. Het staat je ook toe om met een team aan één applicatie te werken, zonder dat je daarbij elkaars werk overschrijft. 
 
-Gedistribueerd betekent dat iedereen een kopie heeft van de originele applicatie, in tegenstelling met gecentraliseerd versiebeheersysteem (CVS), waarbij iedereen dezelfde "master"-versie heeft. Gecentraliseerd versiebeheer heeft enorm veel nadelen ([Linus Torvalds, de uitvinder van het distribueerde systeem, legt uit waarom](https://www.youtube.com/watch?v=4XpnKHJAok8)) en zou dus niet meer mogen gebruikt worden.
+Gedistribueerd betekent dat iedereen een kopie heeft van de originele applicatie, in tegenstelling met een gecentraliseerd versiebeheersysteem (CVS), waarbij iedereen dezelfde "master"-versie heeft. Gecentraliseerd versiebeheer heeft enorm veel nadelen ([Linus Torvalds, de uitvinder van het distribueerde systeem, legt uit waarom](https://www.youtube.com/watch?v=4XpnKHJAok8)) en zou dus niet meer mogen gebruikt worden.
 
 Git is voornamelijk bedoeld voor bestanden die tekst bevatten en niet voor gecompilede bestanden (binary files) zoals afbeeldingen, pdf's, exe's, ... (hoewel het wel mogelijk is)
 
@@ -23,7 +23,7 @@ Let op, Git en Github zijn niet hetzelfde. Git is een versiebeheersysteem, terwi
 
 Voor Linux en Mac gebruikers is het makkelijk, daar is Git standaard geïnstalleerd. Windows-gebruikers moeten dit expliciet installeren. Surf naar [Git-SCM](https://git-scm.com/) en download de juiste versie.
 
-Verder moet je er zeker van zijn dat je bij de installatie Git toevoegt aan je PATH-variabele. Als je deze optie niet aanvinkt, dan kan je in de command line tool er geen gebruik van kan maken. Om dat op te lossen moet je heel wat manueel werk verrichten, vergeet dit dus zeker niet 
+Verder moet je er zeker van zijn dat je bij de installatie Git toevoegt aan je PATH-variabele. Als je deze optie niet aanvinkt, dan kan je in de command line tool er geen gebruik van maken. Om dat op te lossen moet je heel wat manueel werk verrichten, vergeet dit dus zeker niet.
 
 Hoe weet je of Git geïnstalleerd is? Open een command line interface/terminal, typ `git` en druk op enter. Als je alle functies van Git te zien krijgt, is Git goed geïnstalleerd.
 
@@ -33,13 +33,13 @@ Als je de installatie hebt doorlopen, moet je eerst een nieuwe command line inte
 
 Je kan dit manueel doen door naar Start > computer (rechtermuisklik) > eigenschappen > geavanceerde instellingen > Geavanceerd (Tabblad) > omgevingsvariabelen > Systeemvariabelen > Path (selecteren) > Bewerken > Waarde van variabele
 
-Als je daar bent, mag je niets verwijderen, maar voeg je een ';' toe op het einde van deze lijn. Daarna ga je op zoek naar de plaats waar Git is geïnstalleerd en de map waar git.exe zich bevindt. Normaalgezien is dat C:\Program Files (x86)\Git\cmd
+Als je daar bent, mag je niets verwijderen, maar voeg je een ';' toe op het einde van deze lijn. Daarna ga je op zoek naar de plaats waar Git is geïnstalleerd en de map waar git.exe zich bevindt. Normaal gezien is dat C:\Program Files (x86)\Git\cmd
 
-Copy-paste deze directory (C:\Program Files (x86)\Git\cmd) en plak ze achteraan de lijn 'Waarde van variabele'. Druk op ok, start een nieuwe instantie van de CLI en typ daarna `git`. Normaalgezien zou je nu uitleg moeten krijgen over hoe je Git kan gebruiken.
+Copy-paste deze directory (C:\Program Files (x86)\Git\cmd) en plak ze achteraan de lijn 'Waarde van variabele'. Druk op ok, start een nieuwe instantie van de CLI en typ daarna `git`. Normaal gezien zou je nu uitleg moeten krijgen over hoe je Git kan gebruiken.
 
 ## Git project aanmaken
 
-Alles gebeurt via de CLI
+Alles gebeurt via de CLI (Command Line Interface)
 
 Navigeer naar de folder waarin je een nieuw project wil starten en typ
 
@@ -58,7 +58,7 @@ git status
 
 Hiermee kan je nagaan welke files zijn toegevoegd aan de repository en dewelke zijn gewijzigd.
 
-Onder 'untracked files' vind je de bestanden terug die nog niet door Git worden gemonitord. Wanneer je een nieuwe file aanmaakt, moet je aan de Git repository toevoegen. Doe je dit niet, kan er van die file geen versiebeheer worden aangemaakt.
+Onder 'untracked files' vind je de bestanden terug die nog niet door Git worden gemonitord. Wanneer je een nieuwe file aanmaakt, moet je deze aan de Git repository toevoegen. Doe je dit niet, kan er van die file geen versiebeheer worden aangemaakt.
 
 ### wijzigingen monitoren (git add)
 
@@ -90,7 +90,7 @@ Op [Github Gitignore](https://github.com/github/gitignore) vind je een hele reek
 
 ### wijzigingen toevoegen aan de huidige branch (git commit)
 
-Wanneer je klaar bent met het toevoegen van een bepaalde functionaliteit, moet je een commit uitvoeren. Een commit stelt Git dan op de hoogte dat de huidig versie de laatste nieuwe versie is van de branch is (later hierover meer). 
+Wanneer je klaar bent met het toevoegen van een bepaalde functionaliteit, moet je een commit uitvoeren. Een commit stelt Git dan op de hoogte dat de huidige versie de laatste nieuwe versie van de branch is (later hierover meer). 
 
 ```
 git commit -m "Add upvote functionality"
@@ -98,21 +98,21 @@ git commit -m "Add upvote functionality"
 
 De `-m` flag staat voor message, hiermee voeg je een boodschap toe aan je commit. Voeg altijd een boodschap toe aan je commit. Dit is makkelijk omdat je dan in een oogopslag weet welke wijzigingen je in die commit hebt uitgevoerd zonder dat je naar de code moet kijken.
 
-Een goede commit message begint met een werkwoord in de tegenwoordige zijd gevolgd door een onderwerp. Hou de commit message zo bondig mogelijk. 
+Een goede commit message begint met een werkwoord in de tegenwoordige tijd, gevolgd door een onderwerp. Hou de commit message zo bondig mogelijk. 
 
-Een goede raad: "Commit early, commit often". Daarmee wordt bedoeld dat je niet moet wachten tot je een werkende versie hebt van je applicatie vooraleer een commit uit te uitvoeren. En hoe meer commits, hoe beter. Dit zorgt ervoor dat wanneer er iets niet meer werkt, je de branch makkelijk kan terugrollen naar een vorige commit. Zo zal je applicatie niet alleen terug werken, je zal ook makkelijker je fout kunnen localiseren door te kijken naar wat er gewijzigd is.
+Een goede raad: "Commit early, commit often". Daarmee wordt bedoeld dat je niet moet wachten tot je een werkende versie hebt van je applicatie vooraleer een commit uit te uitvoeren. En hoe meer commits, hoe beter. Dit zorgt ervoor dat wanneer er iets niet meer werkt, je de branch makkelijk kan terugrollen naar een vorige commit. Zo zal je applicatie niet alleen terug werken, je zal ook makkelijker je fout kunnen lokaliseren door te kijken naar wat er gewijzigd is.
 
 In het begin is het even wennen, maar een goede commit history kan je heel wat kopzorgen besparen. Commit early, commit often!
 
 ### wijzigingen bekijken 
 
-Dit is iets waar de CLI wat in  tekort schiet. De GUIs zoals ScourceTree zijn heel goed in het visualiseren van de verschillende versies. De GUIs zijn dus zeker de moeite om eens te bekijken. Maar, met de CLI gaat het ook:
+Dit is iets waar de CLI wat in tekort schiet. De GUI's zoals ScourceTree zijn heel goed in het visualiseren van de verschillende versies. De GUI's zijn dus zeker de moeite om eens te bekijken. Maar, met de CLI gaat het ook:
 
 ```
 git diff
 ```
 
-Hiermee worden alle files vergeleken met de versie van de laatste commit.Je kan dit dus enkel uitvoeren tussen het moment dat je een wijziging hebt gemaakt en het uitvoeren van de commit.
+Hiermee worden alle files vergeleken met de versie van de laatste commit. Je kan dit dus enkel uitvoeren tussen het moment dat je een wijziging hebt gemaakt en het uitvoeren van de commit.
 
 Deze command brengt je volledige commit history in kaart:
 
@@ -175,7 +175,7 @@ git checkout master
 
 Je maakt een nieuwe branch van de master, bv. `git checkout -b bugFix`, je fixt de bug en voert de commits uit zoals je die gewoon bent. 
 
-Het is niet zo dat wijzigingen in een kopie van een branch, ook in de originele branch plaatsvinden. Je moet de wijzigingen in de nieuwe branch mergen met de branch waarvan je de kopie hebt genomen. 
+Het is niet zo dat wijzigingen in een kopie van een branch, ook in de originele branch plaatsvinden. Je moet de wijzigingen in de nieuwe branch mergen met de branch waarvan je de kopie genomen hebt. 
 
 Wanneer je klaar bent, kan je de bugFix branch met de master mergen, zodat de officiële versie van je applicatie die zich in de master bevindt, ook de wijzigingen uit de bugFix zal ontvangen. Navigeer daarvoor eerst naar de branch die de bugFix moet ontvangen en voer daarin de volgende command uit
 
